@@ -5,11 +5,23 @@ import { IEvent } from './interfaces/event.interface';
 export class EventsService {
   private readonly events: IEvent[] = [];
 
-  create(event: IEvent) {
-    this.events.push(event);
+  findAll(): IEvent[] {
+    // TODO: database call
+    return this.events;
   }
 
-  findAll(): IEvent[] {
-    return this.events;
+  findOne(): IEvent {
+    // TODO: database call
+    return this.events[0];
+  }
+
+  updateIsRegistered(eventId, isRegistered): string {
+    // TODO: database call
+    return `Updated ${eventId} with ${isRegistered}`;
+  }
+
+  updateIsBookmarked(eventId, isBookmarked): string {
+    // TODO: database call
+    return `Updated ${eventId} with ${isBookmarked}`;
   }
 }

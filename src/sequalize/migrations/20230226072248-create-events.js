@@ -30,7 +30,11 @@ module.exports = {
         allowNull: false,
       },
       datetime: {
-        type: Sequelize.DATE,
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
+      timezone: {
+        type: Sequelize.STRING,
         allowNull: false,
       },
       are_seats_available: {
@@ -38,17 +42,17 @@ module.exports = {
         allowNull: false,
         defaultValue: true,
       },
-      isRegistered: {
+      is_registered: {
         type: Sequelize.BOOLEAN,
         allowNull: false,
         defaultValue: false,
       },
-      isBookmarked: {
+      is_bookmarked: {
         type: Sequelize.BOOLEAN,
         allowNull: false,
         defaultValue: false,
       },
-      imgUrl: {
+      img_url: {
         type: Sequelize.BOOLEAN,
         allowNull: false,
         defaultValue: false,

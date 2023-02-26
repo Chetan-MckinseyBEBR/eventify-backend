@@ -31,10 +31,16 @@ export class Event extends Model<Event> {
   venue: string;
 
   @Column({
-    type: DataType.DATE,
+    type: DataType.STRING,
     allowNull: false,
   })
-  datetime: Date;
+  datetime: string;
+
+  @Column({
+    type: DataType.STRING,
+    allowNull: false,
+  })
+  timezone: string;
 
   @Column({
     type: DataType.BOOLEAN,
