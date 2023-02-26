@@ -1,28 +1,64 @@
-import { Column, Model, Table } from 'sequelize-typescript';
+import { Column, DataType, Model, Table } from 'sequelize-typescript';
 
-@Table
-export class Event extends Model {
-  @Column({ primaryKey: true })
+@Table({
+  modelName: 'event',
+  underscored: true,
+})
+export class Event extends Model<Event> {
+  @Column({
+    type: DataType.INTEGER,
+    primaryKey: true,
+    allowNull: false,
+  })
   id: number;
 
-  @Column
+  @Column({
+    type: DataType.STRING,
+    allowNull: false,
+  })
   name: string;
 
-  @Column
+  @Column({
+    type: DataType.STRING,
+    allowNull: false,
+  })
   description: string;
 
-  @Column
+  @Column({
+    type: DataType.STRING,
+    allowNull: false,
+  })
   venue: string;
 
-  @Column({})
+  @Column({
+    type: DataType.DATE,
+    allowNull: false,
+  })
   datetime: Date;
 
-  @Column
+  @Column({
+    type: DataType.BOOLEAN,
+    allowNull: false,
+  })
   areSeatsAvailable: boolean;
 
-  @Column({ defaultValue: true })
+  @Column({
+    type: DataType.BOOLEAN,
+    allowNull: false,
+    defaultValue: false,
+  })
   isRegistered: boolean;
 
-  @Column
+  @Column({
+    type: DataType.BOOLEAN,
+    allowNull: false,
+    defaultValue: false,
+  })
   isBookmarked: boolean;
+
+  @Column({
+    type: DataType.STRING,
+    allowNull: false,
+  })
+  imgUrl: string;
 }

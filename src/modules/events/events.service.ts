@@ -1,15 +1,15 @@
 import { Injectable } from '@nestjs/common';
-import { Event } from './interfaces/event.interface';
+import { IEvent } from './interfaces/event.interface';
 
 @Injectable()
 export class EventsService {
-  private readonly events: Event[] = [];
+  private readonly events: IEvent[] = [];
 
-  create(event: Event) {
+  create(event: IEvent) {
     this.events.push(event);
   }
 
-  findAll(): Event[] {
+  findAll(): IEvent[] {
     return this.events;
   }
 }

@@ -4,15 +4,12 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { EventsModule } from './modules/events/events.module';
 
-// Entities
-import { Event } from './modules/events/events.model';
-
 @Module({
   imports: [
     SequelizeModule.forRoot({
       dialect: 'sqlite',
       storage: 'db.sqlite',
-      models: [Event],
+      autoLoadModels: true,
     }),
     EventsModule,
   ],
