@@ -3,6 +3,7 @@ import { Column, DataType, Model, Table } from 'sequelize-typescript';
 @Table({
   modelName: 'event',
   underscored: true,
+  timestamps: false,
 })
 export class Event extends Model<Event> {
   @Column({

@@ -18,25 +18,25 @@ export class EventsController {
   constructor(private eventsService: EventsService) {}
 
   @Get()
-  findAll(): string {
-    return 'This action returns all events';
+  async findAll() {
+    return await this.eventsService.findAll();
   }
 
   @Get(':id')
-  findOne(@Param('id') id: number): string {
-    return `This action returns events ${id}`;
+  async findOne(@Param('id') id: number) {
+    return await this.eventsService.findOne(id);
   }
 
   @Put(':id')
   @UsePipes(new ValidationPipe({ transform: true }))
   @HttpCode(HttpStatus.OK)
-  updateEvent(@Param('id') id: number, @Body() body: UpdateEventDto) {
+  async updateEvent(@Param('id') id: number, @Body() body: UpdateEventDto) {
     if (body.isBookmarked !== undefined) {
-      this.eventsService.updateIsBookmarked(id, body.isBookmarked);
+      await this.eventsService.updateBookmark(id, body.isBookmarked);
     }
 
     if (body.isRegistered !== undefined) {
-      this.eventsService.updateIsRegistered(id, body.isRegistered);
+      await this.eventsService.updateRegister(id, body.isRegistered);
     }
 
     if (body.isBookmarked === undefined && body.isRegistered === undefined) {

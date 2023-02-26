@@ -1,27 +1,54 @@
-import { Injectable } from '@nestjs/common';
-import { IEvent } from './interfaces/event.interface';
+import { BadRequestException, Injectable } from '@nestjs/common';
+import { InjectModel } from '@nestjs/sequelize';
+import { Event } from './events.model';
 
 @Injectable()
 export class EventsService {
-  private readonly events: IEvent[] = [];
+  constructor(
+    @InjectModel(Event)
+    private eventModel: typeof Event,
+  ) {}
 
-  findAll(): IEvent[] {
-    // TODO: database call
-    return this.events;
+  findAll(): Promise<Event[]> {
+    return this.eventModel.findAll();
   }
 
-  findOne(): IEvent {
-    // TODO: database call
-    return this.events[0];
+  findOne(id: number): Promise<Event> {
+    return this.eventModel.findOne({
+      where: { id },
+    });
   }
 
-  updateIsRegistered(eventId, isRegistered): string {
-    // TODO: database call
-    return `Updated ${eventId} with ${isRegistered}`;
+  async updateRegister(eventId, isRegistered) {
+    try {
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      const res = await this.eventModel.update(
+        { isRegistered: isRegistered },
+        { where: { id: eventId } },
+      );
+
+      // No rows were updated
+      if (res[0] == 0) {
+        throw new BadRequestException('Invalid Event Id');
+      }
+    } catch (err) {
+      throw new BadRequestException(err.message);
+    }
   }
 
-  updateIsBookmarked(eventId, isBookmarked): string {
-    // TODO: database call
-    return `Updated ${eventId} with ${isBookmarked}`;
+  async updateBookmark(eventId, isBookmarked) {
+    try {
+      const res = await this.eventModel.update(
+        { isBookmarked: isBookmarked },
+        { where: { id: eventId } },
+      );
+
+      // No rows were updated
+      if (res[0] == 0) {
+        throw new BadRequestException('Invalid Event Id');
+      }
+    } catch (err) {
+      throw new BadRequestException(err);
+    }
   }
 }
