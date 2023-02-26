@@ -2,10 +2,10 @@ import { Module } from '@nestjs/common';
 import { SequelizeModule } from '@nestjs/sequelize';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { EventsModule } from './events/events.module';
+import { EventsModule } from './modules/events/events.module';
 
 // Entities
-import { Event } from './events/events.model';
+import { Event } from './modules/events/events.model';
 
 @Module({
   imports: [
