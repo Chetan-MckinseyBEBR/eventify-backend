@@ -4,6 +4,12 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { EventsModule } from './modules/events/events.module';
 
+// TODO: Add swagger
+// TODO: Add cors
+// TODO: Add loggers
+// TODO: Write unit tests
+// TODO: Theme Module
+
 @Module({
   imports: [
     SequelizeModule.forRoot({
