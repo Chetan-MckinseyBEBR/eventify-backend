@@ -17,11 +17,11 @@ module.exports = {
         unique: true,
         primaryKey: true,
       },
-      colorHexCode: {
+      color_hex_code: {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      isActive: {
+      is_active: {
         type: Sequelize.BOOLEAN,
         allowNull: false,
       },

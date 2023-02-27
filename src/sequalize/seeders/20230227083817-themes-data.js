@@ -15,15 +15,15 @@ module.exports = {
     await queryInterface.bulkInsert('themes', [
       {
         color_hex_code: '#800080',
-        isActive: true,
+        is_active: true,
       },
       {
         color_hex_code: '#0000FF',
-        isActive: false,
+        is_active: false,
       },
       {
         color_hex_code: '#9B9999',
-        isActive: false,
+        is_active: false,
       },
     ]);
   },
