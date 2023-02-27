@@ -1,7 +1,7 @@
 import { Column, DataType, Model, Table } from 'sequelize-typescript';
 
 @Table({
-  modelName: 'event',
+  modelName: 'events',
   underscored: true,
   timestamps: false,
 })

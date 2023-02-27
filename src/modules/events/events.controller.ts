@@ -7,7 +7,6 @@ import {
   HttpStatus,
   Param,
   Patch,
-  Put,
   UsePipes,
   ValidationPipe,
 } from '@nestjs/common';

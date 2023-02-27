@@ -3,6 +3,7 @@ import { SequelizeModule } from '@nestjs/sequelize';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { EventsModule } from './modules/events/events.module';
+import { ThemesModule } from './modules/themes/themes.module';
 
 // TODO: Add swagger
 // TODO: Add loggers
@@ -14,9 +15,9 @@ import { EventsModule } from './modules/events/events.module';
     SequelizeModule.forRoot({
       dialect: 'sqlite',
       storage: 'db.sqlite',
-      autoLoadModels: true,
     }),
     EventsModule,
+    ThemesModule,
   ],
   controllers: [AppController],
   providers: [AppService],
