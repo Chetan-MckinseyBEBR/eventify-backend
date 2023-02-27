@@ -15,6 +15,7 @@ import { ThemesModule } from './modules/themes/themes.module';
     SequelizeModule.forRoot({
       dialect: 'sqlite',
       storage: 'db.sqlite',
+      autoLoadModels: true,
     }),
     EventsModule,
     ThemesModule,

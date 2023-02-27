@@ -1,6 +1,6 @@
-import { IsNotEmpty } from 'class-validator';
+import { IsNumber } from 'class-validator';
 
 export class UpdateActiveTheme {
-  @IsNotEmpty()
+  @IsNumber()
   preferredThemeId: number;
 }
