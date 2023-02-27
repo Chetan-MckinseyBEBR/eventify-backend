@@ -6,6 +6,7 @@ import {
   HttpCode,
   HttpStatus,
   Param,
+  Patch,
   Put,
   UsePipes,
   ValidationPipe,
@@ -27,7 +28,7 @@ export class EventsController {
     return await this.eventsService.findOne(id);
   }
 
-  @Put(':id')
+  @Patch(':id')
   @UsePipes(new ValidationPipe({ transform: true }))
   @HttpCode(HttpStatus.OK)
   async updateEvent(@Param('id') id: number, @Body() body: UpdateEventDto) {
