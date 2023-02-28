@@ -34,7 +34,7 @@ module.exports = {
         datetime: new Date('01 March 2023 21:00 CST').toISOString(),
         timezone: 'US/Central',
         are_seats_available: false,
-        is_registered: true,
+        is_registered: false,
         is_bookmarked: false,
         img_url:
           'https://thumbs.dreamstime.com/b/rodeo-cowboy-rough-ride-tossed-around-his-horse-red-bluff-california-april-63692080.jpg',
@@ -60,7 +60,7 @@ module.exports = {
         datetime: new Date('20 March 2023 21:00 EST').toISOString(),
         timezone: 'US/Eastern',
         are_seats_available: true,
-        is_registered: false,
+        is_registered: true,
         is_bookmarked: false,
         img_url: 'https://i.ibb.co/Hx0gKgH/karaoke-2.jpg',
       },

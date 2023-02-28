@@ -31,12 +31,20 @@ export class EventsController {
   @UsePipes(new ValidationPipe({ transform: true }))
   @HttpCode(HttpStatus.OK)
   async updateEvent(@Param('id') id: number, @Body() body: UpdateEventDto) {
-    if (body.isBookmarked !== undefined) {
-      await this.eventsService.updateBookmark(id, body.isBookmarked);
+    if (body.isRegistered !== undefined) {
+      const seatAvailability = await this.eventsService.fetchSeatAvailability(
+        id,
+      );
+
+      if (!seatAvailability.areSeatsAvailable && body.isRegistered){
+        throw new BadRequestException('No seats Available!!!');
+      }
+
+      await this.eventsService.updateRegister(id, body.isRegistered);
     }
 
-    if (body.isRegistered !== undefined) {
-      await this.eventsService.updateRegister(id, body.isRegistered);
+    if (body.isBookmarked !== undefined) {
+      await this.eventsService.updateBookmark(id, body.isBookmarked);
     }
 
     if (body.isBookmarked === undefined && body.isRegistered === undefined) {

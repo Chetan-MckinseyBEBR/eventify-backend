@@ -19,9 +19,16 @@ export class EventsService {
     });
   }
 
+  async fetchSeatAvailability(id: number) {
+    const seatAvailability = await this.eventModel.findOne({
+      attributes: ['areSeatsAvailable'],
+      where: { id },
+    });
+    return seatAvailability;
+  }
+
   async updateRegister(eventId, isRegistered) {
     try {
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       const res = await this.eventModel.update(
         { isRegistered: isRegistered },
         { where: { id: eventId } },
