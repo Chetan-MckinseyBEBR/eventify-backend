@@ -8,7 +8,6 @@ import { ThemesModule } from './modules/themes/themes.module';
 // TODO: Add swagger
 // TODO: Add loggers
 // TODO: Write unit tests
-// TODO: Theme Module
 
 @Module({
   imports: [
