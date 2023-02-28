@@ -10,4 +10,4 @@
 ## Guidelines
 
 - Code should be run in main branch
-- To reset db to initial state => Revert changes to the `db.sqlite` file
+- To reset db to initial state => Revert changes in the `db.sqlite` file
