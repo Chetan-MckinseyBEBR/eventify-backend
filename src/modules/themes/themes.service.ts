@@ -8,7 +8,7 @@ export class ThemesService {
   constructor(
     @InjectModel(Theme)
     private themeModel: typeof Theme,
-    private sequelize: Sequelize,
+    private readonly sequelize: Sequelize,
   ) {}
 
   findAll(): Promise<Partial<Theme[]>> {
