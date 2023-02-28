@@ -11,7 +11,7 @@ import {
 import { UpdateActiveTheme } from './themes.dto';
 import { ThemesService } from './themes.service';
 
-@Controller('themes')
+@Controller('api/themes')
 export class ThemesController {
   constructor(private themesService: ThemesService) {}
 
