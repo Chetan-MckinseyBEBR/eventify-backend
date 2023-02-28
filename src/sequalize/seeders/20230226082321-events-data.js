@@ -62,7 +62,7 @@ module.exports = {
         are_seats_available: true,
         is_registered: false,
         is_bookmarked: false,
-        img_url: 'https://i.ibb.co/MydP9sY/karoke-contest.png',
+        img_url: 'https://i.ibb.co/Hx0gKgH/karaoke-2.jpg',
       },
     ]);
   },
